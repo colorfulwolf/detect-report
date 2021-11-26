@@ -1,11 +1,11 @@
 source:
-  rtsp://wowzaec2demo.streamlock.net/vod/mp4:BigBuckBunny_115k.mov
+  https://safety.lggov.cn/play/index.m3u8?HostId=f5e9ca2e88e4418099a408d3fa393db5&CSupIp=192.168.50.1&CSupPort=8000&DSupId=zkfwq&CSupId=zkfwq&Ch=3&DataType=1 
 keys:
   - suitcase
   - person
   - skateboard
 street:
-  xx街道
+  横岗街道
 title:
   通道处有杂物摆放
 category:
@@ -15,4 +15,4 @@ interval:
 device:
   cpu
 report_url:
-  https://longgang.yoyoyard.com/api/v1/events
+  https://safety.lggov.cn/api/v1/events

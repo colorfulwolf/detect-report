@@ -32,7 +32,7 @@ def detect(source, device, keys, reporter, save_img=False):
     exist_ok=False
     imgsz=img_size
     webcam = source.isnumeric() or source.endswith('.txt') or source.lower().startswith(
-        ('rtsp://', 'rtmp://', 'http://'))
+        ('rtsp://', 'rtmp://', 'http://', 'https://'))
 
     # Directories
     save_dir = Path(Path(project))  # not increment run
