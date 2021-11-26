@@ -3,7 +3,7 @@ FROM python:3.9
 # Keeps Python from generating .pyc files in the container
 ENV PYTHONDONTWRITEBYTECODE=1
 
-RUN echo "deb http://mirrors.ustc.edu.cn/debian stable main contrib non-free \ndeb http://mirrors.ustc.edu.cn/debian stable-updates main contrib non-free " > /etc/apt/sources.list
+# RUN echo "deb http://mirrors.ustc.edu.cn/debian stable main contrib non-free \ndeb http://mirrors.ustc.edu.cn/debian stable-updates main contrib non-free " > /etc/apt/sources.list
 
 RUN apt-get update \
     && apt-get install -y \
