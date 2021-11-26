@@ -6,6 +6,10 @@ keys:
   - skateboard
 street:
   xx街道
+title:
+  通道处有杂物摆放
+category:
+  通道阻塞
 interval:
   10
 device:

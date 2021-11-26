@@ -22,7 +22,7 @@ def main():
     format="%(asctime)s [%(threadName)-12.12s] [%(levelname)-5.5s]  %(message)s",
     level=logging.INFO,
     handlers=[
-        logging.FileHandler("./log/detect.log"),
+        logging.FileHandler("./log/detect.log", mode='a', encoding=None, delay=False),
         logging.StreamHandler()
     ]
   )
