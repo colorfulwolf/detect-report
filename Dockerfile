@@ -3,6 +3,8 @@ FROM python:3.9
 # Keeps Python from generating .pyc files in the container
 ENV PYTHONDONTWRITEBYTECODE=1
 
+RUN echo "deb http://mirrors.ustc.edu.cn/debian stable main contrib non-free \ndeb http://mirrors.ustc.edu.cn/debian stable-updates main contrib non-free " > /etc/apt/sources.list
+
 RUN apt-get update \
     && apt-get install -y \
         gcc \
@@ -28,6 +30,7 @@ RUN apt-get update \
 
 # Install python dependencies
 COPY requirements.txt .
+RUN python -m pip config set global.index-url https://pypi.tuna.tsinghua.edu.cn/simple
 RUN python -m pip install --upgrade pip
 RUN pip install --no-cache  --no-cache-dir --upgrade -r requirements.txt --timeout 10000
 

@@ -4,6 +4,7 @@
 # FROM denismakogon/opencv3-slim:edge
 FROM jjanzic/docker-python3-opencv
 
+RUN echo "deb http://mirrors.ustc.edu.cn/debian stable main contrib non-free \ndeb http://mirrors.ustc.edu.cn/debian stable-updates main contrib non-free " > /etc/apt/sources.list
 RUN apt-get update
 RUN apt-get -y install \
     gcc \
@@ -20,6 +21,7 @@ RUN apt-get -y install \
 
 # Install python dependencies
 COPY requirements.txt .
+RUN python -m pip config set global.index-url https://pypi.tuna.tsinghua.edu.cn/simple
 RUN python -m pip install --upgrade pip
 RUN pip install --no-cache  --no-cache-dir --upgrade -r requirements.txt --timeout 10000
 RUN export QT_DEBUG_PLUGINS=1
@@ -36,6 +38,8 @@ ENV HOME=/usr/src/app
 ENV DETECT_SOURCE=rtsp://wowzaec2demo.streamlock.net/vod/mp4:BigBuckBunny_115k.mov
 ENV DETECT_KEYS=suitcase,person,skateboard
 ENV DETECT_STREET=xx街道
+ENV CATEGORY=通道阻塞
+ENV TITLE=通道处有杂物摆放
 ENV DETECT_INTERVAL=10
 ENV DETECT_DEVICE=cpu
 ENV REPORT_URL=https://longgang.yoyoyard.com/api/v1/events
