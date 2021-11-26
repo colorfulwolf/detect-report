@@ -36,9 +36,11 @@ def main():
   interval = os.environ.get('DETECT_INTERVAL') or config.get("interval")
   device = os.environ.get('DETECT_DEVICE') or config.get("device")
   report_url = os.environ.get('REPORT_URL') or config.get("report_url")
+  category = os.environ.get('CATEGORY') or config.get("category")
+  title = os.environ.get('TITLE') or config.get("title")
 
   # Run detect
-  reporter = Reporter(report_url, interval, street)
+  reporter = Reporter(report_url, interval, street, title, category)
   detect(source, device, keys, reporter)
 
 if __name__ == "__main__":

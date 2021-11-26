@@ -6,11 +6,13 @@ import datetime
 from cprint import cprint
 
 class Reporter:
-  def __init__(self, url, interval, street):
+  def __init__(self, url, interval, street, title, category):
     self.url = url
     self.http = urllib3.PoolManager()
     self.interval = interval
     self.street = street
+    self.title = title
+    self.category = category
     self.last_report_time = None
 
   def add_minutes(self, tm, minutes1):
@@ -59,9 +61,9 @@ class Reporter:
         self.url,
         fields={
           'event[images][]': ('image.jpg', binary_data),
-          'event[title]': '告警',
+          'event[title]': self.title,
           'event[street]': self.street,
-          'event[category]': '测试'
+          'event[category]': self.category
         }
       )
       result = r.data
